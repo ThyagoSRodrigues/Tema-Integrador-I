@@ -1,148 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ciência de Dados</title>
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: "Courier New", monospace;
-    background: black;
-    color: #00ffcc;
-}
+    header h1 { font-size: 2em; }
 
-/* Efeito de fundo hacker */
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0,255,204,0.05),
-        rgba(0,255,204,0.05) 1px,
-        transparent 1px,
-        transparent 3px
-    );
-    pointer-events: none;
-}
+    nav {
+      margin-top: 10px;
+    }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 30px;
-    border-bottom: 1px solid #00ffcc;
-}
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
 
-header h1 {
-    font-size: 2.5rem;
-    text-shadow: 0 0 10px #00ffcc;
-}
+    nav a:hover { text-decoration: underline; }
 
-/* Seções */
-section {
-    padding: 30px;
-    max-width: 900px;
-    margin: auto;
-}
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
 
-h2 {
-    color: #00ffcc;
-    border-left: 4px solid #00ffcc;
-    padding-left: 10px;
-}
+    h2 {
+      margin-bottom: 15px;
+      color: #0077cc;
+    }
 
-p {
-    line-height: 1.6;
-}
+    p { margin-bottom: 10px; }
 
-/* Cards */
-.card {
-    background: rgba(0, 255, 204, 0.05);
-    border: 1px solid #00ffcc;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #00ffcc33;
-}
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      color: #777;
+    }
 
-/* Botões */
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    color: black;
-    background: #00ffcc;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: white;
-    color: black;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #00ffcc;
-    margin-top: 30px;
-}
-</style>
-
+    @media (max-width: 600px) {
+      nav a { display: block; margin: 5px 0; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>⚡ CIÊNCIA DE DADOS ⚡</h1>
-    <p>Transformando dados em decisões inteligentes</p>
-</header>
+  <header>
+    <h1>Carreira em Tecnologia</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#dicas">Dicas</a>
+      <a href="#ods">ODS 9</a>
+      
+    </nav>
+  </header>
 
-<section>
-    <h2>👨‍💻 Sobre a profissão</h2>
-    <div class="card">
-        <p>
-        O cientista de dados analisa grandes volumes de dados para gerar insights e ajudar empresas na tomada de decisões estratégicas.
-        </p>
-    </div>
-</section>
+  <section id="sobre">
+    <h2>Sobre a Profissão</h2>
+    <p>A área de tecnologia oferece diversas oportunidades, com destaque para o crescimento constante e alta demanda no mercado.</p>
+  </section>
 
-<section>
-    <h2>📈 Dicas e Tendências</h2>
-    <div class="card">
-        <p>✔ Aprender Python e SQL</p>
-        <p>✔ Estudar Machine Learning</p>
-        <p>✔ Criar projetos no GitHub</p>
-        <p>✔ Focar em Inteligência Artificial</p>
-    </div>
-</section>
+  <section id="dicas">
+    <h2>Dicas e Tendências</h2>
+    <p>Aprender novas tecnologias, manter um portfólio atualizado e acompanhar o mercado são essenciais para o sucesso.</p>
+  </section>
 
-<section>
-    <h2>🌍 ODS 9</h2>
-    <div class="card">
-        <p>
-        A Ciência de Dados contribui para inovação, melhoria de processos e desenvolvimento tecnológico, alinhando-se ao ODS 9.
-        </p>
-    </div>
-</section>
+  <section id="ods">
+    <h2>Contribuição para o ODS 9</h2>
+    <p>A tecnologia contribui diretamente para inovação, desenvolvimento de infraestrutura e avanço da indústria.</p>
+  </section>
 
-<section>
-    <h2>📱 Contato</h2>
-    <div class="card">
-        <p>LinkedIn: seu perfil</p>
-        <p>GitHub: seu usuário</p>
-        <a href="#" class="btn">Entrar em contato</a>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 - Thyago Rodrigues</p>
-</footer>
+  <footer>
+    <p>Projeto acadêmico - 2026</p>
+  </footer>
 
 </body>
 </html>
