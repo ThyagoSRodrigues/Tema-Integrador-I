@@ -1,75 +1,245 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Ciência de Dados</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carreira em Ciência de Dados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --card:#111827;        /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#3b82f6;       /* blue-500 */
+      --brand-2:#22c55e;     /* green-500 */
+      --ring: rgba(59,130,246,.35);
+    }
 
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #111;
-            color: white;
-        }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(59,130,246,.15), transparent 60%),
+                  radial-gradient(800px 400px at -10% 10%, rgba(34,197,94,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-        header {
-            background-color: #222;
-            padding: 10px;
-            text-align: center;
-        }
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-        nav a {
-            margin: 10px;
-            color: lightblue;
-            text-decoration: none;
-        }
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(15,23,42,.7);
+      border-bottom:1px solid rgba(148,163,184,.15);
+    }
 
-        section {
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid gray;
-        }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 0;
+    }
 
-        h1, h2 {
-            color: lightblue;
-        }
-    </style>
+    .logo{font-weight:700;letter-spacing:.5px}
+    .logo span{color:var(--brand)}
+
+    .menu a{
+      color:var(--text);text-decoration:none;margin-left:18px;font-weight:500;opacity:.9
+    }
+    .menu a:hover{opacity:1}
+
+    .hero{
+      padding:64px 0 40px;
+      display:grid;gap:18px;
+    }
+
+    .badge{
+      display:inline-block;width:max-content;
+      padding:6px 10px;border-radius:999px;
+      background: rgba(59,130,246,.15);
+      color:#bfdbfe;font-size:12px;font-weight:600
+    }
+
+    h1{
+      font-size:clamp(28px, 4vw, 44px);
+      line-height:1.2;
+      letter-spacing:-.5px
+    }
+
+    .hero p{color:var(--muted);max-width:720px}
+
+    .cta{
+      display:flex;gap:12px;margin-top:10px;flex-wrap:wrap
+    }
+
+    .btn{
+      border:1px solid rgba(148,163,184,.25);
+      background:transparent;color:var(--text);
+      padding:10px 14px;border-radius:10px;cursor:pointer;
+      transition:.2s ease; text-decoration:none; display:inline-block
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--brand), #6366f1);
+      border:none
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+    .grid{
+      display:grid;gap:18px;
+      grid-template-columns: repeat(12, 1fr);
+      margin:28px 0 8px
+    }
+
+    .card{
+      grid-column: span 12;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:16px; padding:20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25)
+    }
+
+    .card h3{margin-bottom:8px}
+    .card p{color:var(--muted)}
+
+    .kpis{
+      display:grid; gap:12px; margin-top:12px;
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .kpi{
+      background:rgba(17,24,39,.7);
+      border:1px solid rgba(148,163,184,.12);
+      border-radius:12px;padding:14px
+    }
+
+    .kpi strong{font-size:18px}
+    .kpi span{display:block;color:var(--muted);font-size:12px}
+
+    .two-col{
+      display:grid; gap:18px;
+      grid-template-columns: 1fr;
+    }
+
+    ul{margin-top:8px;padding-left:18px}
+    li{margin:6px 0;color:var(--muted)}
+
+    .footer{
+      border-top:1px solid rgba(148,163,184,.15);
+      margin-top:40px;padding:20px 0;color:var(--muted);
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
+    }
+
+    /* Responsive */
+    @media (min-width: 768px){
+      .card.span-6{grid-column: span 6}
+      .two-col{grid-template-columns: 1fr 1fr}
+    }
+
+    @media (min-width: 1024px){
+      .card.span-4{grid-column: span 4}
+      .card.span-8{grid-column: span 8}
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-    <h1>Ciência de Dados</h1>
-    <nav>
+  <header>
+    <div class="container nav">
+      <div class="logo">Tech<span>Path</span></div>
+      <nav class="menu">
         <a href="#sobre">Sobre</a>
         <a href="#tecnologias">Tecnologias</a>
         <a href="#mercado">Mercado</a>
         <a href="#ods">ODS 9</a>
-    </nav>
-</header>
+      </nav>
+    </div>
+  </header>
 
-<section id="sobre">
-    <h2>O que faz o profissional?</h2>
-    <p>Coleta, organiza e analisa dados para gerar informações importantes.</p>
-</section>
+  <main class="container">
+    <section class="hero">
+      <span class="badge">Carreira em destaque</span>
+      <h1>Ciência de Dados: transformando dados em decisões</h1>
+      <p>Profissionais de Ciência de Dados coletam, tratam e analisam dados para gerar insights estratégicos. A área cresce rapidamente e impacta negócios, saúde, indústria e governo.</p>
+      <div class="cta">
+        <a class="btn primary" href="#sobre">Explorar área</a>
+        <a class="btn" href="#tecnologias">Ver tecnologias</a>
+      </div>
+    </section>
 
-<section id="tecnologias">
-    <h2>Tecnologias</h2>
-    <ul>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Power BI</li>
-    </ul>
-</section>
+    <section class="grid" id="sobre">
+      <div class="card span-8">
+        <h3>O que faz o profissional?</h3>
+        <p>Coleta e limpeza de dados, modelagem estatística, criação de modelos de machine learning e comunicação de resultados por dashboards e relatórios.</p>
+        <div class="kpis">
+          <div class="kpi"><strong>Alta demanda</strong><span>empresas data-driven</span></div>
+          <div class="kpi"><strong>Salários competitivos</strong><span>nível júnior a sênior</span></div>
+          <div class="kpi"><strong>Impacto real</strong><span>decisões baseadas em dados</span></div>
+        </div>
+      </div>
+      <div class="card span-4">
+        <h3>Principais atividades</h3>
+        <ul>
+          <li>Exploração e visualização de dados</li>
+          <li>Modelos preditivos</li>
+          <li>ETL e preparação</li>
+          <li>Comunicação de insights</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="mercado">
-    <h2>Mercado de trabalho</h2>
-    <p>Alta demanda e bons salários.</p>
-</section>
+    <section class="grid" id="tecnologias">
+      <div class="card span-6">
+        <h3>Linguagens e ferramentas</h3>
+        <ul>
+          <li>Python (Pandas, NumPy, Scikit-learn)</li>
+          <li>SQL</li>
+          <li>Power BI / Tableau</li>
+          <li>Jupyter Notebook</li>
+        </ul>
+      </div>
+      <div class="card span-6">
+        <h3>Certificações valorizadas</h3>
+        <ul>
+          <li>Google Data Analytics</li>
+          <li>Microsoft PL-300 (Power BI)</li>
+          <li>AWS Certified Data Analytics</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="ods">
-    <h2>ODS 9</h2>
-    <p>Ajuda na inovação e desenvolvimento tecnológico.</p>
-</section>
+    <section class="grid" id="mercado">
+      <div class="card span-4">
+        <h3>Média salarial</h3>
+        <p>Júnior: R$ 3k–6k<br>Pleno: R$ 6k–10k<br>Sênior: R$ 10k+</p>
+      </div>
+      <div class="card span-4">
+        <h3>Empresas</h3>
+        <p>Big techs, bancos, startups e consultorias utilizam dados para decisões estratégicas.</p>
+      </div>
+      <div class="card span-4">
+        <h3>Desafios & oportunidades</h3>
+        <p>Qualidade de dados, ética e privacidade, mas com grande espaço para inovação.</p>
+      </div>
+    </section>
 
+    <section class="grid" id="ods">
+      <div class="card span-8">
+        <h3>Contribuição para o ODS 9</h3>
+        <p>A Ciência de Dados impulsiona a inovação e a infraestrutura ao otimizar processos industriais, prever demandas e melhorar serviços públicos por meio de análises avançadas.</p>
+      </div>
+      <div class="card span-4">
+        <h3>Exemplos reais</h3>
+        <ul>
+          <li>Previsão de demanda em energia</li>
+          <li>Otimização logística</li>
+          <li>Análise de mobilidade urbana</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>Projeto acadêmico • 2026</span>
+      <span>Desenvolvido por você</span>
+    </div>
+  </main>
 </body>
 </html>
